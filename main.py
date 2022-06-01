@@ -1,5 +1,5 @@
 from flask import Flask, jsonify, Response
-from utils import get_compared_pairs, get_pair
+from api import get_compared_pairs, get_pair
 
 app = Flask(__name__)
 

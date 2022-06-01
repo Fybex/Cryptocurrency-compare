@@ -17,11 +17,12 @@ def filter_pairs_response(
     exchange: str,
 ) -> list[dict]:
     response_json = [
-        item for item in response_json if item[symbol][-len(coin) :] == coin
+        item for item in response_json if item[symbol][-len(coin):] == coin
     ]
     response_json = [
         {
-            "symbol": item[symbol][: -len(coin)].replace("_", ""),
+            "symbol": item[symbol][:-len(coin)].replace("_", ""),
+            "symbol_2": coin,
             "price_change": float(item[price_change]),
             "open_price": float(item[open_price]),
             "exchange": exchange,
@@ -52,9 +53,13 @@ def compare_exchanges(exchange_1: list[dict], exchange_2: list[dict]) -> list[di
             if item_2["symbol"] not in [item["symbol"] for item in exchange_1]:
                 result.append(item_2)
             if item["symbol"] == item_2["symbol"]:
-                result.append(max(item, item_2, key=lambda x: x["open_price"]))
+                result.append(min(item, item_2, key=lambda x: x["open_price"]))
         if item["symbol"] not in [item_2["symbol"] for item_2 in exchange_2]:
             result.append(item)
+
+    result = [dict(t) for t in {tuple(d.items()) for d in result}]
+
+    result.sort(key=lambda x: x["open_price"], reverse=True)
 
     return result
 
@@ -103,4 +108,5 @@ def get_crypto_pair(symbol_1: str, symbol_2: str) -> dict:
 def get_pair(symbol_1: str, symbol_2: str) -> list[dict]:
     binance_pair = get_binance_pair(symbol_1, symbol_2)
     crypto_pair = get_crypto_pair(symbol_1, symbol_2)
+
     return [binance_pair, crypto_pair]
