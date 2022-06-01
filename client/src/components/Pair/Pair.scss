@@ -1,0 +1,68 @@
+.pair-card {
+    &__wrapper {
+        width: 100%;
+    }
+    
+    display: flex;
+    flex-direction: column;
+    margin-top: 20vh;
+    margin-bottom: 40px;
+    padding: 60px 160px;
+    border: 2px solid var(--color-main-light);
+    border-radius: 16px;
+
+    &__header {
+        margin-bottom: 40px;
+
+        &__symbol {
+            color: var(--color-main);
+        }
+
+        &__symbol-2 {
+            color: var(--color-main-strong);
+        }
+    }
+
+    &__row {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &__column {
+        display: grid;
+        gap: 20px;
+
+        &__item-designation, &__item {
+            display: flex;
+            justify-content: center;
+        }
+
+        &__item-designation {
+            font-weight: lighter;
+            color: var(--color-main-light);
+        }
+
+        &__item {
+            font-size: 20px;
+            font-weight: bolder;
+            color: var(--color-main);
+
+            &__logo {
+                width: 120px;
+            }
+
+            &--best-option {
+                color: var(--color-green);
+            }
+
+            &--worst-option {
+                color: var(--color-red);
+            }
+        }
+    }
+
+    &__back-button {
+        display: flex;
+        justify-content: center;
+    }
+}

@@ -1,0 +1,27 @@
+.cards {
+    width: 100%;
+
+    &__container {
+        display: grid;
+        gap: 40px;
+    }
+
+    &__show-more-button {
+        display: flex;
+        justify-content: center;
+        margin: 80px 0;
+    }
+
+    &__designations {
+        display: flex;
+        justify-content: space-between;
+        padding: 0 40px;
+        color: var(--color-main-light);
+        margin-bottom: 15px;
+
+        &__header, &__body {
+            font-weight: lighter;
+            font-size: 16px;
+        }
+    }
+}

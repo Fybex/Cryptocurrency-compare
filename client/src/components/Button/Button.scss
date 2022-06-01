@@ -1,0 +1,15 @@
+button {
+    font-size: 20px;
+    font-weight: 500;
+    color: var(--color-main-secondary);
+    padding: 20px 40px;
+    border: 2px solid var(--color-main-light);
+    border-radius: 16px;
+    background: transparent;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+
+    &:hover {
+        background: var(--color-hover);
+    }
+}
