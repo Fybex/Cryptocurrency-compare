@@ -1,5 +1,6 @@
 {
   "name": "client",
+  "homepage": "https://fybex.github.io/сryptocurrency-compare",
   "version": "0.1.0",
   "private": true,
   "proxy": "https://cryptocurrency-compare.herokuapp.com/",
@@ -16,6 +17,8 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -40,6 +43,7 @@
     ]
   },
   "devDependencies": {
+    "gh-pages": "^4.0.0",
     "sass": "^1.52.1"
   }
 }
