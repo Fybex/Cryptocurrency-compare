@@ -8,7 +8,7 @@ export default function App() {
 	return (
 		<div className='App'>
 			<div className='wrapper'>
-				<HashRouter basename={process.env.PUBLIC_URL}>
+				<HashRouter>
 					<Routes>
 						<Route path='/' element={<Pairs />} />
 						<Route path='/:symbol' element={<Pairs />} />
