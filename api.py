@@ -24,6 +24,8 @@ def filter_pairs_response(
             "symbol": item[symbol][:-len(coin)].replace("_", ""),
             "symbol_2": coin,
             "price_change": float(item[price_change]),
+            "price_change_24h": round(float(item[price_change]) / (float(item[open_price]) - float(item[price_change])),
+                                      2) if float(item[open_price]) - float(item[price_change]) != 0 else 0,
             "open_price": float(item[open_price]),
             "exchange": exchange,
         }
