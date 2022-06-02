@@ -11,8 +11,10 @@ export default function Card(props) {
 		symbol_2: symbol2,
 		open_price: openPrice,
 		exchange,
-		price_change: priceChange,
+		price_change_24h: priceChange,
 	} = item;
+
+	const isUSDT = symbol2 === 'USDT';
 
 	const cardPriceChangeClass = classnames(
 		'card__body__price-change',
@@ -22,15 +24,12 @@ export default function Card(props) {
 	);
 
 	return (
-		<Link
-			to={`${symbol2 !== 'USDT' ? `/${symbol2}` : ''}/${symbol}`}
-			className='card'
-		>
+		<Link to={`${!isUSDT ? `/${symbol2}` : ''}/${symbol}`} className='card'>
 			<div className='card__header'>
 				<div className='card__header__number'>{index + 1}</div>
 				<div className='card__header_symbols'>
 					<div className='card__header__symbol'>{symbol}</div>
-					{symbol2 !== 'USDT' && (
+					{!isUSDT && (
 						<div className='card__header__symbol card__header__symbol-2'>
 							{symbol2}
 						</div>
@@ -38,11 +37,16 @@ export default function Card(props) {
 				</div>
 			</div>
 			<div className='card__body'>
-				<div className='card__body__open-price'>{openPrice}</div>
+				<div className='card__body__open-price'>
+					{openPrice}
+					{isUSDT && (
+						<span className='card__header__symbol__dollar'>$</span>
+					)}
+				</div>
 				<div className='card__body__exchange'>
 					<ExchangeLogo exchange={exchange} />
 				</div>
-				<div className={cardPriceChangeClass}>{priceChange}</div>
+				<div className={cardPriceChangeClass}>{`${priceChange > 0 ? '+' : ''}${priceChange}%`}</div>
 			</div>
 		</Link>
 	);
