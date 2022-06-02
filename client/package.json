@@ -1,6 +1,6 @@
 {
+  "homepage": "https://fybex.github.io/Сryptocurrency-compare",
   "name": "client",
-  "homepage": "https://fybex.github.io/сryptocurrency-compare",
   "version": "0.1.0",
   "private": true,
   "proxy": "https://cryptocurrency-compare.herokuapp.com/",
