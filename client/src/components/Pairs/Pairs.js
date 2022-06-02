@@ -46,19 +46,27 @@ export default function Pairs() {
 		<Spinner />
 	) : (
 		<div className='pairs'>
-			<div className='pairs__navbar'>
-				<Search onSearch={handleSearch} />
-				{symbol !== 'USDT' && (
-					<Link to='/' className='pairs__navbar__back-button'>
-						<Button>Back</Button>
-					</Link>
-				)}
-			</div>
-			<Cards
-				pairs={pairs}
-				count={showCount}
-				handleShowMore={handleShowMore}
-			/>
+			{pairs && pairs.length > 0 ? (
+				<>
+					<div className='pairs__navbar'>
+						<Search onSearch={handleSearch} />
+						{symbol !== 'USDT' && (
+							<Link to='/' className='pairs__navbar__back-button'>
+								<Button>Back</Button>
+							</Link>
+						)}
+					</div>
+					<Cards
+						pairs={pairs}
+						count={showCount}
+						handleShowMore={handleShowMore}
+					/>
+				</>
+			) : (
+				<div className='pairs__no-pairs'>
+					<h1>No pairs found</h1>
+				</div>
+			)}
 		</div>
 	);
 }
