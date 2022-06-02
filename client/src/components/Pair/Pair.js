@@ -32,7 +32,7 @@ export default function Pair() {
 			'pair-card__column__item--worst-option': item[property] !== min,
 		});
 
-		return <div className={classes}>{item[property]}</div>;
+		return <div className={classes}>{item[property] ?? 'Does not exist on this exchange'}</div>;
 	};
 
 	return loading ? (
@@ -64,8 +64,8 @@ export default function Pair() {
 							Low price
 						</div>
 					</div>
-					{pair?.map(item => (
-						<div className='pair-card__column'>
+					{pair?.map((item, index) => (
+						<div className='pair-card__column' key={index}>
 							<div className='pair-card__column__item'>
 								<ExchangeLogo exchange={item.exchange} />
 							</div>
