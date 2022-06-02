@@ -4,16 +4,20 @@ import classnames from 'classnames';
 import './Pair.scss';
 import Button from '../Button/Button';
 import ExchangeLogo from '../ExchangeLogo/ExchangeLogo';
+import Spinner from '../Spinner/Spinner';
 
 export default function Pair() {
 	const { symbol, symbol2 } = useParams();
 
 	const [pair, setPair] = useState(null);
+	const [loading, setLoading] = useState(true);
 
 	useEffect(() => {
+		setLoading(true);
 		fetch(`/${symbol}/${symbol2}`).then(response => {
 			response.json().then(data => {
 				setPair(data.pair);
+				setLoading(false);
 			});
 		});
 	}, [symbol, symbol2]);
@@ -31,7 +35,9 @@ export default function Pair() {
 		return <div className={classes}>{item[property]}</div>;
 	};
 
-	return (
+	return loading ? (
+		<Spinner />
+	) : (
 		<div className='pair-card__wrapper'>
 			<div className='pair-card'>
 				<h1 className='pair-card__header'>
