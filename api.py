@@ -36,7 +36,7 @@ def filter_pairs_response(
 def get_binance_pairs(coin: str) -> list[dict]:
     response = request_wrapper(binance_url)
     return filter_pairs_response(
-        response, coin, "symbol", "priceChange", "openPrice", "Binance"
+        response, coin, "symbol", "priceChange", "askPrice", "Binance"
     )
 
 
@@ -79,16 +79,21 @@ def filter_pair_response(
     volume: str,
     exchange: str,
 ) -> dict:
-    response_json = {
-        "bid_price": float(response_json[bid_price]),
-        "ask_price": float(response_json[ask_price]),
-        "high_price": float(response_json[high_price]),
-        "low_price": float(response_json[low_price]),
-        "volume": float(response_json[volume]),
+    if bid_price in response_json and ask_price in response_json:
+        response_json = {
+            "bid_price": float(response_json[bid_price]),
+            "ask_price": float(response_json[ask_price]),
+            "high_price": float(response_json[high_price]),
+            "low_price": float(response_json[low_price]),
+            "volume": float(response_json[volume]),
+            "exchange": exchange,
+        }
+
+        return response_json
+
+    return {
         "exchange": exchange,
     }
-
-    return response_json
 
 
 def get_binance_pair(symbol_1: str, symbol_2: str) -> dict:
@@ -108,5 +113,4 @@ def get_crypto_pair(symbol_1: str, symbol_2: str) -> dict:
 def get_pair(symbol_1: str, symbol_2: str) -> list[dict]:
     binance_pair = get_binance_pair(symbol_1, symbol_2)
     crypto_pair = get_crypto_pair(symbol_1, symbol_2)
-
     return [binance_pair, crypto_pair]
