@@ -50,7 +50,7 @@ export default function Pairs() {
 				<Search onSearch={handleSearch} />
 				{symbol !== 'USDT' && (
 					<Link to='/' className='pairs__navbar__back-button'>
-						<Button>Back to home page</Button>
+						<Button>Back</Button>
 					</Link>
 				)}
 			</div>
