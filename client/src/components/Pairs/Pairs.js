@@ -17,12 +17,14 @@ export default function Pairs() {
 
 	useEffect(() => {
 		setLoading(true);
-		fetch(`https://cryptocurrency-compare.herokuapp.com/${symbol}`).then(response => {
-			response.json().then(data => {
-				setData(data);
-				setLoading(false);
-			});
-		});
+		fetch(`https://cryptocurrency-compare.herokuapp.com/${symbol}`).then(
+			response => {
+				response.json().then(data => {
+					setData(data);
+					setLoading(false);
+				});
+			}
+		);
 	}, [symbol]);
 
 	const handleShowMore = () => {
@@ -46,16 +48,16 @@ export default function Pairs() {
 		<Spinner />
 	) : (
 		<div className='pairs'>
+			<div className='pairs__navbar'>
+				<Search onSearch={handleSearch} />
+				{symbol !== 'USDT' && (
+					<Link to='/' className='pairs__navbar__back-button'>
+						<Button>Back</Button>
+					</Link>
+				)}
+			</div>
 			{pairs && pairs.length > 0 ? (
 				<>
-					<div className='pairs__navbar'>
-						<Search onSearch={handleSearch} />
-						{symbol !== 'USDT' && (
-							<Link to='/' className='pairs__navbar__back-button'>
-								<Button>Back</Button>
-							</Link>
-						)}
-					</div>
 					<Cards
 						pairs={pairs}
 						count={showCount}
