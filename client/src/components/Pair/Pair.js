@@ -14,7 +14,9 @@ export default function Pair() {
 
 	useEffect(() => {
 		setLoading(true);
-		fetch(`https://cryptocurrency-compare.herokuapp.com/${symbol}/${symbol2}`).then(response => {
+		fetch(
+			`https://cryptocurrency-compare.herokuapp.com/${symbol}/${symbol2}`
+		).then(response => {
 			response.json().then(data => {
 				setPair(data.pair);
 				setLoading(false);
@@ -32,7 +34,7 @@ export default function Pair() {
 			'pair-card__column__item--worst-option': item[property] !== min,
 		});
 
-		return <div className={classes}>{item[property] ?? 'Does not exist on this exchange'}</div>;
+		return <div className={classes}>{item[property] ?? '-'}</div>;
 	};
 
 	return loading ? (

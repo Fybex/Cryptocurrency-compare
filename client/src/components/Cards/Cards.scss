@@ -19,9 +19,48 @@
         color: var(--color-main-light);
         margin-bottom: 15px;
 
-        &__header, &__body {
+        &__header,
+        &__body {
             font-weight: lighter;
             font-size: 16px;
+        }
+
+        &__show-more-button {
+            margin: 40px 0;
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .cards {
+        &__container {
+            gap: 20px;
+        }
+
+        &__designations {
+            padding: 0 20px;
+
+            &__header,
+            &__body {
+                font-size: 13px;
+            }
+        }
+
+        &__show-more-button {
+            margin: 20px 0;
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .cards {
+        &__designations {
+            padding: 0 20px;
+
+            &__header,
+            &__body {
+                font-size: 10px;
+            }
         }
     }
 }

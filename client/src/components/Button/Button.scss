@@ -13,3 +13,17 @@ button {
         background: var(--color-hover);
     }
 }
+
+@media screen and (max-width: 768px) {
+    button {
+        font-size: 16px;
+        padding: 10px 30px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    button {
+        font-size: 14px;
+        padding: 10px 20px;
+    }
+}
