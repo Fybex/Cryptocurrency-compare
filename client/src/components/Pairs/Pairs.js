@@ -12,7 +12,7 @@ export default function Pairs() {
 	const [data, setData] = useState(null);
 	const [loading, setLoading] = useState(true);
 	const [pairs, setPairs] = useState(null);
-	const [showCount, setShowCount] = useState(5);
+	const [showCount, setShowCount] = useState(10);
 	const [search, setSearch] = useState('');
 
 	useEffect(() => {
@@ -26,7 +26,7 @@ export default function Pairs() {
 	}, [symbol]);
 
 	const handleShowMore = () => {
-		setShowCount(showCount + 5);
+		setShowCount(showCount + 10);
 	};
 
 	const handleSearch = search => {

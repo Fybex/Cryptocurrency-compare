@@ -133,7 +133,7 @@ a:active {
             gap: 10px;
 
             & > *:not(.card__header__number, .cards__designations__header__number) {
-                width: 50px;
+                width: 60px;
             }
         }
 
@@ -144,6 +144,7 @@ a:active {
 
             &__symbol {
                 font-size: 14px;
+                width: 40px !important;
             }
         }
 
@@ -151,6 +152,10 @@ a:active {
             &__open-price,
             &__price-change {
                 font-size: 14px;
+            }
+
+            &__price-change {
+                width: 50px !important;
             }
         }
     }
