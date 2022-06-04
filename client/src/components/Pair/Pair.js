@@ -14,7 +14,7 @@ export default function Pair() {
 
 	useEffect(() => {
 		setLoading(true);
-		fetch(`/${symbol}/${symbol2}`).then(response => {
+		fetch(`https://cryptocurrency-compare.herokuapp.com/${symbol}/${symbol2}`).then(response => {
 			response.json().then(data => {
 				setPair(data.pair);
 				setLoading(false);
