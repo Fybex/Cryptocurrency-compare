@@ -46,7 +46,9 @@ export default function Card(props) {
 				<div className='card__body__exchange'>
 					<ExchangeLogo exchange={exchange} />
 				</div>
-				<div className={cardPriceChangeClass}>{`${priceChange > 0 ? '+' : ''}${priceChange}%`}</div>
+				<div className={cardPriceChangeClass}>{`${
+					priceChange > 0 ? '+' : ''
+				}${priceChange}%`}</div>
 			</div>
 		</Link>
 	);

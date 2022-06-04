@@ -4,12 +4,8 @@ import './Spinner.scss';
 
 export default function Spinner() {
 	return (
-        <div className='spinner'>
-			<BounceLoader
-                sizeUnit='px'
-                size={150}
-                color='#827397'
-            />
-        </div>
+		<div className='spinner'>
+			<BounceLoader sizeUnit='px' size={150} color='#827397' />
+		</div>
 	);
 }

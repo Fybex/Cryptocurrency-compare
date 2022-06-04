@@ -37,7 +37,12 @@ export default function Cards(props) {
 				))}
 			</div>
 			{rawPairs.length > count && (
-					<Button className='cards__show-more-button' onClick={handleShowMore}>Load more</Button>
+				<Button
+					className='cards__show-more-button'
+					onClick={handleShowMore}
+				>
+					Load more
+				</Button>
 			)}
 		</div>
 	);
