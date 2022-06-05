@@ -3,8 +3,8 @@ import { Link, useParams } from 'react-router-dom';
 import Search from '../../components/Search/Search';
 import Cards from '../../components/Cards/Cards';
 import Button from '../../components/Button/Button';
-import './Pairs.scss';
 import Spinner from '../../components/Spinner/Spinner';
+import './Pairs.scss';
 
 export default function Pairs() {
 	const { symbol = 'USDT' } = useParams();

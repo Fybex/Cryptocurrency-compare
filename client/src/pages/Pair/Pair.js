@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import classnames from 'classnames';
-import './Pair.scss';
 import Button from '../../components/Button/Button';
 import ExchangeLogo from '../../components/ExchangeLogo/ExchangeLogo';
 import Spinner from '../../components/Spinner/Spinner';
+import './Pair.scss';
 
 export default function Pair() {
 	const { symbol, symbol2 } = useParams();
