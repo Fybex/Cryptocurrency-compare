@@ -4,6 +4,7 @@ import classnames from 'classnames';
 import Button from '../../components/Button/Button';
 import ExchangeLogo from '../../components/ExchangeLogo/ExchangeLogo';
 import Spinner from '../../components/Spinner/Spinner';
+import API_URL from '../../constants/api';
 import './Pair.scss';
 
 export default function Pair() {
@@ -16,9 +17,7 @@ export default function Pair() {
 		const fetchPair = async () => {
 			setLoading(true);
 
-			const response = await fetch(
-				`https://cryptocurrency-compare.herokuapp.com/${symbol}/${symbol2}`
-			);
+			const response = await fetch(`${API_URL}${symbol}/${symbol2}`);
 
 			const data = await response.json();
 			setPair(data.pair);

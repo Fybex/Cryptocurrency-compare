@@ -4,6 +4,7 @@ import Search from '../../components/Search/Search';
 import Cards from '../../components/Cards/Cards';
 import Button from '../../components/Button/Button';
 import Spinner from '../../components/Spinner/Spinner';
+import API_URL from '../../constants/api';
 import './Pairs.scss';
 
 export default function Pairs() {
@@ -19,9 +20,7 @@ export default function Pairs() {
 		const fetchPairs = async () => {
 			setLoading(true);
 
-			const response = await fetch(
-				`https://cryptocurrency-compare.herokuapp.com/${symbol}`
-			);
+			const response = await fetch(`${API_URL}${symbol}`);
 
 			const data = await response.json();
 			setData(data);
