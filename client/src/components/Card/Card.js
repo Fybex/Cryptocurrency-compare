@@ -7,8 +7,6 @@ import './Card.scss';
 export default function Card(props) {
 	const { symbol, symbol2, openPrice, exchange, priceChange, index } = props;
 
-	const isUSDT = symbol2 === 'USDT';
-
 	const cardPriceChangeClass = classnames(
 		'card__body__price-change',
 		`card__body__price-change--${
