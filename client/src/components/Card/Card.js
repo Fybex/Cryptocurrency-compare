@@ -11,9 +11,9 @@ export default function Card(props) {
 
 	const cardPriceChangeClass = classnames(
 		'card__body__price-change',
-		priceChange >= 0
-			? 'card__body__price-change--positive'
-			: 'card__body__price-change--negative'
+		`card__body__price-change--${
+			priceChange >= 0 ? 'positive' : 'negative'
+		}`
 	);
 
 	return (
