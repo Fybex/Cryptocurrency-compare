@@ -13,15 +13,20 @@ export default function Pair() {
 	const [loading, setLoading] = useState(true);
 
 	useEffect(() => {
-		setLoading(true);
-		fetch(
-			`https://cryptocurrency-compare.herokuapp.com/${symbol}/${symbol2}`
-		).then(response => {
-			response.json().then(data => {
-				setPair(data.pair);
-				setLoading(false);
-			});
-		});
+		const fetchPair = async () => {
+			setLoading(true);
+
+			const response = await fetch(
+				`https://cryptocurrency-compare.herokuapp.com/${symbol}/${symbol2}`
+			);
+
+			const data = await response.json();
+			setPair(data.pair);
+
+			setLoading(false);
+		};
+
+		fetchPair();
 	}, [symbol, symbol2]);
 
 	const columnItem = (item, property, pair) => {
