@@ -5,14 +5,7 @@ import ExchangeLogo from '../ExchangeLogo/ExchangeLogo';
 import './Card.scss';
 
 export default function Card(props) {
-	const { item, index } = props;
-	const {
-		symbol,
-		symbol_2: symbol2,
-		open_price: openPrice,
-		exchange,
-		price_change_24h: priceChange,
-	} = item;
+	const { symbol, symbol2, openPrice, exchange, priceChange, index } = props;
 
 	const isUSDT = symbol2 === 'USDT';
 

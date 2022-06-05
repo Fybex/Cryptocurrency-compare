@@ -32,9 +32,27 @@ export default function Cards(props) {
 				</div>
 			</div>
 			<div className='cards__container'>
-				{pairs.map((item, index) => (
-					<Card item={item} index={index} key={index} />
-				))}
+				{pairs.map((item, index) => {
+					const {
+						symbol,
+						symbol_2: symbol2,
+						open_price: openPrice,
+						exchange,
+						price_change_24h: priceChange,
+					} = item;
+
+					return (
+						<Card
+							key={index}
+							symbol={symbol}
+							symbol2={symbol2}
+							openPrice={openPrice}
+							exchange={exchange}
+							priceChange={priceChange}
+							index={index}
+						/>
+					);
+				})}
 			</div>
 			{rawPairs.length > count && (
 				<Button
