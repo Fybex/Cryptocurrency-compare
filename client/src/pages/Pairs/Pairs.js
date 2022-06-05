@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
-import Search from '../Search/Search';
-import Cards from '../Cards/Cards';
-import Button from '../Button/Button';
+import Search from '../../components/Search/Search';
+import Cards from '../../components/Cards/Cards';
+import Button from '../../components/Button/Button';
 import './Pairs.scss';
-import Spinner from '../Spinner/Spinner';
+import Spinner from '../../components/Spinner/Spinner';
 
 export default function Pairs() {
 	const { symbol = 'USDT' } = useParams();

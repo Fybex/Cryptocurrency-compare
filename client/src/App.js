@@ -1,7 +1,7 @@
 import React from 'react';
 import { HashRouter, Routes, Route } from 'react-router-dom';
-import Pair from './components/Pair/Pair';
-import Pairs from './components/Pairs/Pairs';
+import Pair from './pages/Pair/Pair';
+import Pairs from './pages/Pairs/Pairs';
 import './App.scss';
 
 export default function App() {
