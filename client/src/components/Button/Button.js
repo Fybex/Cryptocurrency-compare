@@ -6,7 +6,7 @@ export default function Button(props) {
 
 	return (
 		<div className={className}>
-			<button onClick={onClick}>{children}</button>
+			<button onClick={onClick} className='button'>{children}</button>
 		</div>
 	);
 }
