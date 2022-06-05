@@ -83,9 +83,14 @@ export default function Pair() {
 					))}
 				</div>
 			</div>
-			<Link to={`/${symbol}`} className='pair-card__back-button'>
-				<Button>Back to {symbol} pairs</Button>
-			</Link>
+			<div className='pair-card__buttons'>
+				<Link to={`/${symbol}`} className='pair-card__back-button'>
+					<Button>Back to {symbol} pairs</Button>
+				</Link>
+				<Link to={`/${symbol2}`} className='pair-card__back-button'>
+					<Button>Another {symbol2} pairs</Button>
+				</Link>
+			</div>
 		</div>
 	);
 }

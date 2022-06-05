@@ -64,6 +64,12 @@
         justify-content: center;
     }
 
+    &__buttons {
+        display: flex;
+        justify-content: center;
+        gap: 40px;
+    }
+
     @media screen and (max-width: 1024px) {
         & {
             padding: 30px 80px;
