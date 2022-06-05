@@ -1,14 +1,15 @@
-import React, { useState, useEffect } from 'react';
-import { Link, useParams } from 'react-router-dom';
-import Search from '../../components/Search/Search';
-import Cards from '../../components/Cards/Cards';
+import React, { useEffect, useState } from 'react';
+import { useNavigate, useParams} from 'react-router-dom';
 import Button from '../../components/Button/Button';
+import Cards from '../../components/Cards/Cards';
+import Search from '../../components/Search/Search';
 import Spinner from '../../components/Spinner/Spinner';
 import API_URL from '../../constants/api';
 import './Pairs.scss';
 
 export default function Pairs() {
 	const { symbol = 'USDT' } = useParams();
+	const navigate = useNavigate();
 
 	const [data, setData] = useState(null);
 	const [loading, setLoading] = useState(true);
@@ -55,9 +56,7 @@ export default function Pairs() {
 			<div className='pairs__navbar'>
 				<Search onSearch={handleSearch} />
 				{symbol !== 'USDT' && (
-					<Link to='/' className='pairs__navbar__back-button'>
-						<Button>Back</Button>
-					</Link>
+					<Button onClick={() => navigate(-1)}>Back</Button>
 				)}
 			</div>
 			{pairs && pairs.length > 0 ? (
