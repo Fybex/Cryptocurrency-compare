@@ -1,16 +1,20 @@
 import React from 'react';
 import binanceLogo from '../../assets/binance.svg';
 import cryptoLogo from '../../assets/cryptocom.svg';
-import EXCHANGE from '../../constants/exchange';
+import Exchange from '../../utils/exchange';
 
-export default function ExchangeLogo(props) {
+interface IExchangeLogoProps {
+	exchange: Exchange;
+}
+
+export default function ExchangeLogo(props: IExchangeLogoProps) {
 	const { exchange } = props;
 
 	const logo = () => {
 		switch (exchange) {
-			case EXCHANGE.BINANCE:
+			case Exchange.Binance:
 				return binanceLogo;
-			case EXCHANGE.CRYPTO_COM:
+			case Exchange.CryptoCom:
 				return cryptoLogo;
 			default:
 				return null;

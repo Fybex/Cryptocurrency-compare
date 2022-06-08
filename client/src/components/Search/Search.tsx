@@ -1,11 +1,15 @@
 import React, { useState } from 'react';
 import './Search.scss';
 
-export default function Search(props) {
+interface ISearchProps {
+	onSearch: (search: string) => void;
+}
+
+export default function Search(props: ISearchProps) {
 	const { onSearch } = props;
 	const [search, setSearch] = useState('');
 
-	const handleSearch = event => {
+	const handleSearch = (event: React.ChangeEvent<HTMLInputElement>) => {
 		event.preventDefault();
 		setSearch(event.target.value);
 		onSearch(event.target.value);

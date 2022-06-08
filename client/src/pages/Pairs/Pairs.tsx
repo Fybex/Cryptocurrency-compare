@@ -1,19 +1,24 @@
 import React, { useEffect, useState } from 'react';
-import { useNavigate, useParams} from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import Button from '../../components/Button/Button';
 import Cards from '../../components/Cards/Cards';
 import Search from '../../components/Search/Search';
 import Spinner from '../../components/Spinner/Spinner';
-import API_URL from '../../constants/api';
+import API_URL from '../../utils/api';
 import './Pairs.scss';
+
+interface IData {
+	pairs: IPairs[];
+	symbol: string;
+}
 
 export default function Pairs() {
 	const { symbol = 'USDT' } = useParams();
 	const navigate = useNavigate();
 
-	const [data, setData] = useState(null);
+	const [data, setData] = useState<IData | null>(null);
 	const [loading, setLoading] = useState(true);
-	const [pairs, setPairs] = useState(null);
+	const [pairs, setPairs] = useState<IPairs[] | null>(null);
 	const [showCount, setShowCount] = useState(10);
 	const [search, setSearch] = useState('');
 
@@ -36,7 +41,7 @@ export default function Pairs() {
 		setShowCount(showCount + 10);
 	};
 
-	const handleSearch = search => {
+	const handleSearch = (search: string) => {
 		setSearch(search);
 	};
 

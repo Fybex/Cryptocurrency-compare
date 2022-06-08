@@ -3,7 +3,13 @@ import Card from '../Card/Card';
 import Button from '../Button/Button';
 import './Cards.scss';
 
-export default function Cards(props) {
+interface ICardsProps {
+	pairs: IPairs[];
+	count: number;
+	handleShowMore: () => void;
+}
+
+export default function Cards(props: ICardsProps) {
 	const { pairs: rawPairs, count, handleShowMore } = props;
 
 	if (!rawPairs) return null;

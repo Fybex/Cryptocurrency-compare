@@ -4,13 +4,18 @@ import classnames from 'classnames';
 import Button from '../../components/Button/Button';
 import ExchangeLogo from '../../components/ExchangeLogo/ExchangeLogo';
 import Spinner from '../../components/Spinner/Spinner';
-import API_URL from '../../constants/api';
+import API_URL from '../../utils/api';
 import './Pair.scss';
+
+interface IData {
+	pair: IPair[];
+	symbol: string;
+}
 
 export default function Pair() {
 	const { symbol, symbol2 } = useParams();
 
-	const [pair, setPair] = useState(null);
+	const [pair, setPair] = useState<IPair[] | null>(null);
 	const [loading, setLoading] = useState(true);
 
 	useEffect(() => {
@@ -19,7 +24,7 @@ export default function Pair() {
 
 			const response = await fetch(`${API_URL}${symbol}/${symbol2}`);
 
-			const data = await response.json();
+			const data: IData = await response.json();
 			setPair(data.pair);
 
 			setLoading(false);
@@ -28,8 +33,12 @@ export default function Pair() {
 		fetchPair();
 	}, [symbol, symbol2]);
 
-	const columnItem = (item, property, pair) => {
-		const min = pair.reduce((min, p) => {
+	const columnItem = (
+		item: IPair,
+		property: keyof Omit<IPair, 'exchange'>,
+		pair: IPair[]
+	) => {
+		const min = pair.reduce((min: number, p: IPair) => {
 			return p[property] < min ? p[property] : min;
 		}, Infinity);
 
