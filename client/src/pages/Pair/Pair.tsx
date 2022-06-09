@@ -4,18 +4,19 @@ import classnames from 'classnames';
 import Button from '../../components/Button/Button';
 import ExchangeLogo from '../../components/ExchangeLogo/ExchangeLogo';
 import Spinner from '../../components/Spinner/Spinner';
-import API_URL from '../../utils/api';
+import API_URL from '../../api';
+import TypePair from 'src/types/pair';
 import './Pair.scss';
 
-interface IData {
-	pair: IPair[];
+type Data = {
+	pair: TypePair[];
 	symbol: string;
-}
+};
 
 export default function Pair() {
 	const { symbol, symbol2 } = useParams();
 
-	const [pair, setPair] = useState<IPair[] | null>(null);
+	const [pair, setPair] = useState<TypePair[] | null>(null);
 	const [loading, setLoading] = useState(true);
 
 	useEffect(() => {
@@ -24,7 +25,7 @@ export default function Pair() {
 
 			const response = await fetch(`${API_URL}${symbol}/${symbol2}`);
 
-			const data: IData = await response.json();
+			const data: Data = await response.json();
 			setPair(data.pair);
 
 			setLoading(false);
@@ -34,11 +35,11 @@ export default function Pair() {
 	}, [symbol, symbol2]);
 
 	const columnItem = (
-		item: IPair,
-		property: keyof Omit<IPair, 'exchange'>,
-		pair: IPair[]
+		item: TypePair,
+		property: keyof Omit<TypePair, 'exchange'>,
+		pair: TypePair[]
 	) => {
-		const min = pair.reduce((min: number, p: IPair) => {
+		const min = pair.reduce((min: number, p: TypePair) => {
 			return p[property] < min ? p[property] : min;
 		}, Infinity);
 

@@ -1,13 +1,13 @@
 import React from 'react';
 import './Button.scss';
 
-interface IButtonProps {
+type ButtonProps = {
 	children: React.ReactNode;
 	onClick?: () => void;
 	className?: string;
-}
+};
 
-export default function Button(props: IButtonProps) {
+export default function Button(props: ButtonProps) {
 	const { children, onClick, className } = props;
 
 	return (

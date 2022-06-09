@@ -1,15 +1,16 @@
 import React from 'react';
 import Card from '../Card/Card';
 import Button from '../Button/Button';
+import Pairs from 'src/types/pairs';
 import './Cards.scss';
 
-interface ICardsProps {
-	pairs: IPairs[];
+type CardsProps = {
+	pairs: Pairs[];
 	count: number;
 	handleShowMore: () => void;
-}
+};
 
-export default function Cards(props: ICardsProps) {
+export default function Cards(props: CardsProps) {
 	const { pairs: rawPairs, count, handleShowMore } = props;
 
 	if (!rawPairs) return null;

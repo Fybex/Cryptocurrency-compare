@@ -2,19 +2,19 @@ import React from 'react';
 import classnames from 'classnames';
 import { Link } from 'react-router-dom';
 import ExchangeLogo from '../ExchangeLogo/ExchangeLogo';
-import Exchange from 'src/utils/exchange';
+import Exchange from 'src/types/exchange';
 import './Card.scss';
 
-interface ICardProps {
+type CardProps = {
 	exchange: Exchange;
 	index: number;
 	openPrice: number;
 	priceChange: number;
 	symbol: string;
 	symbol2: string;
-}
+};
 
-export default function Card(props: ICardProps) {
+export default function Card(props: CardProps) {
 	const { exchange, index, openPrice, priceChange, symbol, symbol2 } = props;
 
 	const cardPriceChangeClass = classnames(

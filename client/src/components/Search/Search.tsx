@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import './Search.scss';
 
-interface ISearchProps {
+type SearchProps = {
 	onSearch: (search: string) => void;
-}
+};
 
-export default function Search(props: ISearchProps) {
+export default function Search(props: SearchProps) {
 	const { onSearch } = props;
 	const [search, setSearch] = useState('');
 

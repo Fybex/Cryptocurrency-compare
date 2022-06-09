@@ -4,11 +4,12 @@ import Button from '../../components/Button/Button';
 import Cards from '../../components/Cards/Cards';
 import Search from '../../components/Search/Search';
 import Spinner from '../../components/Spinner/Spinner';
-import API_URL from '../../utils/api';
+import API_URL from '../../api';
+import TypePairs from 'src/types/pairs';
 import './Pairs.scss';
 
-interface IData {
-	pairs: IPairs[];
+type Data = {
+	pairs: TypePairs[];
 	symbol: string;
 }
 
@@ -16,9 +17,9 @@ export default function Pairs() {
 	const { symbol = 'USDT' } = useParams();
 	const navigate = useNavigate();
 
-	const [data, setData] = useState<IData | null>(null);
+	const [data, setData] = useState<Data | null>(null);
 	const [loading, setLoading] = useState(true);
-	const [pairs, setPairs] = useState<IPairs[] | null>(null);
+	const [pairs, setPairs] = useState<TypePairs[] | null>(null);
 	const [showCount, setShowCount] = useState(10);
 	const [search, setSearch] = useState('');
 
