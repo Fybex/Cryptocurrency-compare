@@ -29,10 +29,10 @@ export default function Card(props: CardProps) {
 			<div className='card__header'>
 				<div className='card__header__number'>{index + 1}</div>
 				<div className='card__header_symbols'>
-					<div className='card__header__symbol'>{symbol}</div>
-					<div className='card__header__symbol card__header__symbol-2'>
+					<span className='card__header__symbol'>{symbol}</span>
+					<span className='card__header__symbol card__header__symbol-2'>
 						{symbol2}
-					</div>
+					</span>
 				</div>
 			</div>
 			<div className='card__body'>

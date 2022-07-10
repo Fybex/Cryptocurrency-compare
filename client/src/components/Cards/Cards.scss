@@ -35,30 +35,36 @@
             &__container {
                 gap: 20px;
             }
-    
+
             &__designations {
                 padding: 0 20px;
-    
+
                 &__header,
                 &__body {
-                    font-size: 13px !important;
+                    font-size: 13px;
                 }
             }
-    
+
             &__show-more-button {
                 margin: 20px 0;
             }
         }
     }
-    
+
     @media screen and (max-width: 480px) {
         & {
             &__designations {
                 padding: 0 20px;
-    
+
                 &__header,
                 &__body {
                     font-size: 10px;
+                }
+
+                &__body {
+                    &__price-change {
+                        display: none !important;
+                    }
                 }
             }
         }
